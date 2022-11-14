@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/lib/utility/routes.dart'
+import 'package:flutter_application_1/utility/routes.dart';
+
 class LoginPage extends StatelessWidget {
   //const LoginPage({super.key});
   @override
@@ -7,7 +8,7 @@ class LoginPage extends StatelessWidget {
     return Material(
       color: Colors.white,
       child: SingleChildScrollView(
-          child: Column(
+        child: Column(
           children: [
             Image.asset("assets/images/undraw_Mobile_login_re_9ntv.png",
                 fit: BoxFit.cover),
@@ -43,11 +44,10 @@ class LoginPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       print("Yo");
-                      Navigator.pushNamed(context,MyRoutes.homeRoute);
+                      Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
                     child: Text("Login"),
-                    style: TextButton.styleFrom(
-                      minimumSize: Size(150,40)),
+                    style: TextButton.styleFrom(minimumSize: Size(150, 40)),
                   )
                 ],
               ),
