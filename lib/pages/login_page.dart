@@ -11,6 +11,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   //const LoginPage({super.key});
   String name = "";
+  String com = ", ";
+  String sir = " Monsiuer";
   bool changebut = false;
   int butcount = 0;
   final _formkey = GlobalKey<FormState>();
@@ -40,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Image.asset("assets/images/undraw_Mobile_login_re_9ntv.png",
                   fit: BoxFit.cover),
-              Text("Welcome to the Login Page, $name",
+              Text("Welcome to the Login Page$name",
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -65,7 +67,10 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                       onChanged: (value) {
-                        name = value;
+                        if (value.toString().isEmpty == false) {
+                          name = com + value + sir;
+                        } else
+                          name = "";
                         setState(() {});
                       },
                     ),
