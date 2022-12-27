@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 2));
     var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
     final decodedData = jsonDecode(catalogJson);
     var productsData = decodedData["products"];
@@ -34,12 +35,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          //backgroundColor: Colors.white,
-          //elevation: 0.0,
-          //iconTheme: IconThemeData(color: Colors.black),
           title: Center(
         child: Text(
-          "Catalog App    ", /*style: TextStyle(color: Colors.black)*/
+          "Catalog App    ",
         ),
       )),
       body: Padding(
@@ -50,7 +48,8 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return ItemWidget(item: CatalogModel.items[index]);
                 })
-            : Center(child: CircularProgressIndicator()),
+            : Center(
+                child: CircularProgressIndicator(color: Colors.deepPurple)),
       ),
       drawer: MyDrawer(),
     );
