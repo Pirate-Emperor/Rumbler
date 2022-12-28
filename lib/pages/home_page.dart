@@ -61,16 +61,13 @@ class _HomePageState extends State<HomePage> {
 class CatalogHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      VxBox(
-        child: Column(
-          children: [
-            "Catalog App".text.xl5.bold.color(MyTheme.darkBluishColor).make(),
-            "Trending products".text.xl2.make(),
-          ],
-        ),
-      ).white.rounded.square(290).make().py16(),
-    ]);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        "Catalog App".text.xl5.bold.color(MyTheme.darkBluishColor).make(),
+        "Trending products".text.xl2.make(),
+      ],
+    );
   }
 }
 
