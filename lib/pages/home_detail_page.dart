@@ -30,7 +30,7 @@ class HomeDetailPage extends StatelessWidget {
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
                   )),
-              child: "Buy".text.make(),
+              child: "Buy".text.white.size(25).make(),
             ).wh(100, 50)
           ],
         ).p32(),
@@ -62,6 +62,12 @@ class HomeDetailPage extends StatelessWidget {
                           .xl
                           .make(),
                       10.heightBox,
+                      "Lorem erat dolor sanctus kasd et justo invidunt voluptua, consetetur sit sanctus ipsum duo eirmod justo dolor, voluptua elitr dolores lorem amet ut kasd. Et rebum elitr nonumy eirmod nonumy..Kasd magna elitr eirmod nonumy dolor nonumy nonumy, elitr elitr at dolor diam. Sed no dolores et sea ipsum takimata,."
+                          .text
+                          .size(14)
+                          .textStyle(context.captionStyle)
+                          .make()
+                          .px12(),
                     ],
                   ).py(50),
                 ),

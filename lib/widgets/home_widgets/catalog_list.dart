@@ -67,7 +67,7 @@ class CatalogItem extends StatelessWidget {
                         shape: MaterialStateProperty.all(
                           StadiumBorder(),
                         )),
-                    child: "Buy".text.make(),
+                    child: "Buy".text.white.make(),
                   )
                 ],
               ).pOnly(right: 8.0)
@@ -75,6 +75,6 @@ class CatalogItem extends StatelessWidget {
           ))
         ],
       ),
-    ).white.rounded.square(150).make().py16();
+    ).color(MyTheme.creamColor).rounded.square(150).make().py16();
   }
 }
