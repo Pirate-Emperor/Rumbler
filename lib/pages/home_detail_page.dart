@@ -30,8 +30,8 @@ class HomeDetailPage extends StatelessWidget {
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
                   )),
-              child: "Buy".text.white.size(25).make(),
-            ).wh(100, 50)
+              child: "Add to Cart".text.white.size(25).make(),
+            ).wh(140, 50)
           ],
         ).p32(),
       ),
