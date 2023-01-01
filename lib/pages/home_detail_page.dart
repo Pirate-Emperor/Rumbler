@@ -13,9 +13,9 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      backgroundColor: MyTheme.whiteColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: MyTheme.creamColor,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
@@ -25,7 +25,7 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                    MyTheme.darkBluishColor,
+                    context.theme.buttonColor,
                   ),
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
@@ -49,12 +49,12 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.CONVEY,
                 edge: VxEdge.TOP,
                 child: Container(
-                  color: MyTheme.creamColor,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
                       catalog.name.text.xl4
-                          .color(MyTheme.darkBluishColor)
+                          .color(context.accentColor)
                           .bold
                           .make(),
                       catalog.desc.text
@@ -62,9 +62,9 @@ class HomeDetailPage extends StatelessWidget {
                           .xl
                           .make(),
                       10.heightBox,
-                      "Lorem erat dolor sanctus kasd et justo invidunt voluptua, consetetur sit sanctus ipsum duo eirmod justo dolor, voluptua elitr dolores lorem amet ut kasd. Et rebum elitr nonumy eirmod nonumy..Kasd magna elitr eirmod nonumy dolor nonumy nonumy, elitr elitr at dolor diam. Sed no dolores et sea ipsum takimata,."
+                      "Lorem erat dolor sanctus kasd et justo invidunt voluptua, consetetur sit sanctus ipsum duo eirmod justo dolor, voluptua elitr dolores lorem amet ut kasd. Et rebum elitr nonumy eirmod nonumy..Kasd magna elitr eirmod nonumy dolor nonumy nonumy."
                           .text
-                          .size(14)
+                          .size(12)
                           .textStyle(context.captionStyle)
                           .make()
                           .px12(),
