@@ -23,7 +23,7 @@ class CartModel {
 
   // Get total price
   num get totalPrice =>
-      items.fold(0, (total, current) => total + current.price);
+      items.fold(0, (total, current) => total + current.totalPrice);
 }
 
 class AddMutation extends VxMutation<MyStore> {

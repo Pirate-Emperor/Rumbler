@@ -14,12 +14,13 @@ class CatalogList extends StatelessWidget {
     return Scrollbar(
       child: VxBuilder(
         mutations: {SearchMutation},
-        builder: (context, stor, status) => !context.isMobile
+        builder: (context, stor, status) => (!context.isMobile &&
+                store.items != null)
             ? GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 shrinkWrap: true,
-                itemCount: store.items!.length,
+                itemCount: store.items?.length,
                 itemBuilder: (context, index) {
                   final catalog = store.items![index];
                   return InkWell(
@@ -35,7 +36,7 @@ class CatalogList extends StatelessWidget {
               )
             : ListView.builder(
                 shrinkWrap: true,
-                itemCount: store.items!.length,
+                itemCount: (store.items == null) ? 0 : store.items!.length,
                 itemBuilder: (context, index) {
                   final catalog = store.items![index];
                   return InkWell(

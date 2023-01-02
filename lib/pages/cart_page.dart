@@ -36,7 +36,7 @@ class _CartTotal extends StatelessWidget {
         children: [
           VxBuilder(
             mutations: {RemoveMutation},
-            builder: (context, store, status) {
+            builder: (context, stor, status) {
               return "\$${_cart!.totalPrice}"
                   .text
                   .xl5
@@ -70,14 +70,17 @@ class _CartList extends StatelessWidget {
     return _cart!.items.isEmpty
         ? "Nothing to show".text.xl3.makeCentered()
         : ListView.builder(
-            itemCount: _cart.items?.length,
+            itemCount: _cart.items.length,
             itemBuilder: (context, index) => ListTile(
               leading: Icon(Icons.done),
               trailing: IconButton(
                 icon: Icon(Icons.remove_circle_outline),
                 onPressed: () => RemoveMutation(_cart.items[index]),
               ),
-              title: _cart.items[index].name.text.make(),
+              title:
+                  "${_cart.items[index].name}\t\t\t\tQ:${_cart.items[index].quantity}"
+                      .text
+                      .make(),
             ),
           );
   }
