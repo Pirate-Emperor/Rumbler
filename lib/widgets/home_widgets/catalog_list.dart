@@ -12,11 +12,14 @@ class CatalogList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
+      isAlwaysShown: true,
+      showTrackOnHover: false,
       child: VxBuilder(
         mutations: {SearchMutation},
         builder: (context, stor, status) => (!context.isMobile &&
                 store.items != null)
             ? GridView.builder(
+                primary: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 shrinkWrap: true,
@@ -35,6 +38,7 @@ class CatalogList extends StatelessWidget {
                 },
               )
             : ListView.builder(
+                primary: true,
                 shrinkWrap: true,
                 itemCount: (store.items == null) ? 0 : store.items!.length,
                 itemBuilder: (context, index) {
