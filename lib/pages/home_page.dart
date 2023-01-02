@@ -12,6 +12,10 @@ import '../widgets/theme.dart';
 import '../widgets/home_widgets/catalog_header.dart';
 import '../widgets/home_widgets/catalog_list.dart';
 
+import '../../core/store.dart';
+import '../../models/cart.dart';
+import '../../models/catalog.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -40,14 +44,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = (VxState.store as MyStore).cart;
     return Scaffold(
         backgroundColor: context.canvasColor,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
-          backgroundColor: context.theme.buttonColor,
-          child: Icon(
-            CupertinoIcons.cart,
-            color: Colors.white,
+        floatingActionButton: VxBuilder(
+          mutations: {AddMutation, RemoveMutation},
+          builder: (context, store, status) => FloatingActionButton(
+            onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+            backgroundColor: context.theme.buttonColor,
+            child: Icon(
+              CupertinoIcons.cart,
+              color: Colors.white,
+            ),
           ),
         ),
         body: SafeArea(
