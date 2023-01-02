@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^3.0.1
   velocity_x: ^3.6.0
   http: ^0.13.5
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:

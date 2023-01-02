@@ -5,25 +5,51 @@ import '../../pages/home_detail_page.dart';
 import '../theme.dart';
 import 'add_to_cart.dart';
 import 'catalog_image.dart';
+import '../../core/store.dart';
 
 class CatalogList extends StatelessWidget {
+  final store = VxState.store as MyStore;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: CatalogModel.items.length,
-      itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
-        return InkWell(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomeDetailPage(catalog: catalog),
-            ),
-          ),
-          child: CatalogItem(catalog: catalog),
-        );
-      },
+    return Scrollbar(
+      child: VxBuilder(
+        mutations: {SearchMutation},
+        builder: (context, stor, status) => !context.isMobile
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                shrinkWrap: true,
+                itemCount: store.items!.length,
+                itemBuilder: (context, index) {
+                  final catalog = store.items![index];
+                  return InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeDetailPage(catalog: catalog),
+                      ),
+                    ),
+                    child: CatalogItem(catalog: catalog),
+                  );
+                },
+              )
+            : ListView.builder(
+                shrinkWrap: true,
+                itemCount: store.items!.length,
+                itemBuilder: (context, index) {
+                  final catalog = store.items![index];
+                  return InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeDetailPage(catalog: catalog),
+                      ),
+                    ),
+                    child: CatalogItem(catalog: catalog),
+                  );
+                },
+              ),
+      ),
     );
   }
 }

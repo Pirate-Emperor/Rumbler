@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utility/routes.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import '../core/store.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -25,7 +29,12 @@ class _LoginPageState extends State<LoginPage> {
         butcount++;
       });
       await Future.delayed(Duration(seconds: 1));
-      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      //await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      await (VxState.store as MyStore)
+          .navigator!
+          .routeManager
+          .push(Uri.parse(MyRoutes.homeRoute));
+
       setState(() {
         changebut = false;
       });
@@ -120,7 +129,32 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-
+                    TextButton(
+                      onPressed: () {
+                        context.vxNav.push(Uri.parse(MyRoutes.signupRoute));
+                      },
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(
+                          context.accentColor,
+                        ),
+                      ),
+                      child: Text("Sign Up").text.headline6(context).make(),
+                    ),
+                    // Link(
+                    //     // uri: Uri.parse("https://codepur.dev"),
+                    //     uri: Uri.parse(MyRoutes.cartRoute),
+                    //     target: LinkTarget.blank,
+                    //     builder: (context, followLink) {
+                    //       return TextButton(
+                    //           onPressed: followLink,
+                    //           style: ButtonStyle(
+                    //               foregroundColor: MaterialStateProperty.all(
+                    //                   context.accentColor)),
+                    //           child: Text("Weirdmagadeon"));
+                    //     }),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     // ElevatedButton(
                     //   onPressed: () {
                     //     print("Yo");
