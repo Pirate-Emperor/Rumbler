@@ -15,6 +15,7 @@ Review and rating system
 Checkout process
 Payment integration
 Order history
+
 2. Design the User Interface
 Design the user interface of your app. This includes the layout, colors, and overall look and feel. You can use tools like Figma or Adobe XD to create a mockup of your app.
 
