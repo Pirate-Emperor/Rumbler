@@ -90,7 +90,7 @@ The app will launch in the default web browser or emulator.
 
 ## Data Source
 
-The project uses a mock API or local JSON data for product information. You can replace it with your own API or data source to fetch real-time product information and inventory.
+The project uses a mock API or/and local JSON data for product information.
 
 ## Development
 
